@@ -29,7 +29,7 @@ Constraints:
 
 =============================================================================
 Approach :
-          permuation possible using recursiion
+          substring possible using recursiion
           stored leaf elements into temp vector
           sort the vector return as answer.
           
@@ -39,20 +39,20 @@ Approach :
               class Solution{
 	public:
 	vector <string> temp;
-	void permutation(string s, string curr,int index){
+	void substring(string s, string curr,int index){
 	    if(s.length()==index){
 	        if(curr!="")
 	         temp.push_back(curr);
 	        return;
 	    }
 	    
-	    permutation(s,curr,index+1);
-	    permutation(s,curr+s[index],index+1);
+	    substring(s,curr,index+1);
+	    substring(s,curr+s[index],index+1);
 	}
 	
 		vector<string> AllPossibleStrings(string s){
 		    // Code here
-		    permutation(s,"",0);
+		    substring(s,"",0);
 		    sort(temp.begin(),temp.end());
 		    return temp;
 		}
